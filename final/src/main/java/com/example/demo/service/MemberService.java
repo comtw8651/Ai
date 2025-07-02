@@ -35,7 +35,7 @@ public class MemberService {
     @Transactional
     public boolean register(String email, String password, String username) {
         Integer count = jdbcTemplate.queryForObject(
-            "SELECT COUNT(*) FROM member WHERE email = ?", Integer.class, email);
+            "SELECT COUNT(*) FROM members WHERE email = ?", Integer.class, email);
 
         if (count != null && count > 0) {
             return false; // Email 已存在
